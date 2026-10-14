@@ -181,7 +181,7 @@ nav a:hover { color: var(--ink); text-decoration: underline; }
   list-style: none;
 }
 
-.links a, .links .pending, .button {
+.links a, .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -197,7 +197,7 @@ nav a:hover { color: var(--ink); text-decoration: underline; }
 .links a:hover, .button:hover { background: oklch(22.3% 0.002 67.7 / 0.06); }
 .links a:active, .button:active { transform: translateY(1px); }
 
-/* Primary action, for "View résumé" once the PDF exists (Stage 4) */
+/* Primary action: View résumé */
 .button-primary {
   border-color: var(--action);
   background: var(--action);
@@ -205,12 +205,6 @@ nav a:hover { color: var(--ink); text-decoration: underline; }
 }
 
 .button-primary:hover { border-color: var(--action-hover); background: var(--action-hover); }
-
-.links .pending {
-  border-style: dashed;
-  color: var(--stone);
-  font-style: italic;
-}
 
 /* Sections */
 main > section {
@@ -238,17 +232,13 @@ main > section > h2 {
   font-size: var(--text-small);
 }
 
-.shot-placeholder {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 16 / 10;
+.shot {
+  display: block;
+  width: 100%;
+  height: auto;
   margin-block: 0.75rem;
-  padding: 1rem;
-  border: 2px dashed var(--stone);
   border-radius: var(--radius-frame);
   background: var(--surface);
-  color: var(--stone);
-  text-align: center;
   box-shadow: var(--shadow-frame);
 }
 
@@ -264,6 +254,12 @@ main > section > h2 {
   color: var(--stone);
   font-size: var(--text-small);
   letter-spacing: 0.01em;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
 }
 
 .project a {
@@ -283,7 +279,7 @@ main > section > h2 {
 
   .project > * { grid-column: 1; }
 
-  .project .shot-placeholder {
+  .project .shot {
     grid-column: 2;
     grid-row: 1 / -1;
     margin: 0;
@@ -292,7 +288,7 @@ main > section > h2 {
   /* Alternate sides so the two projects read as distinct sections */
   .project:nth-of-type(even) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
   .project:nth-of-type(even) > * { grid-column: 2; }
-  .project:nth-of-type(even) .shot-placeholder { grid-column: 1; }
+  .project:nth-of-type(even) .shot { grid-column: 1; }
 }
 
 /* Background */
@@ -347,7 +343,6 @@ dd:last-child { margin-bottom: 0; }
 
 .site-footer .links a { border-color: var(--fog); }
 .site-footer .links a:hover { background: oklch(96% 0.014 78.3 / 0.1); }
-.site-footer .pending { border-color: var(--fog); color: var(--fog); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

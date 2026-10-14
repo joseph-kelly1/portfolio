@@ -7,7 +7,8 @@
 | 1. Content and design brief | Accepted by Joseph, 2026-10-14 |
 | 2. Working page skeleton | Complete, 2026-10-14 |
 | 3. Visual styling | Complete, 2026-10-14 |
-| 4–6 | Not started |
+| 4. Projects and public résumé | Complete, 2026-10-14 |
+| 5–6 | Not started |
 
 ## Execution policy
 
@@ -23,7 +24,7 @@ Localhost preview begins in Stage 2. Stage 3 adds the full visual treatment, and
 | Bio | As written in `docs/content.md` §1 |
 | Project order | MailCart, then NU Insights |
 | NU Insights role title | "Creator & Developer" |
-| Repository links | Omitted; none supplied |
+| Repository links | MailCart: none public, omitted. NU Insights: `github.com/joseph-kelly1/nu-insights`, verified in Stage 4 |
 | Background scope | Education + SLATE and Alactive lines only; no coursework |
 | GPA on page | Not shown |
 | Leadership section | Omitted |
@@ -71,8 +72,28 @@ Verified 2026-10-14 in Chromium (playwright-cli):
 - Contrast pairs are listed in DESIGN.md; the lowest text pair is 4.6:1.
 - Not tested: Safari/Firefox, real touch devices, and real browser zoom (emulated by viewport width).
 
+## Stage 4 implementation decisions
+
+| Decision | Outcome |
+| --- | --- |
+| Project copy | Stage 1 copy kept unchanged; metrics limited to the approved "495-test suite", "6,034 courses", and "395 program variants" |
+| NU Insights repo | Added "View NU Insights code on GitHub". The public repo is under Joseph's account and its README links the live app. Revisable if Joseph prefers no code link |
+| MailCart screenshot | The app is behind sign-in, so the screenshot is the composer and live preview on the public home page (example contact "Emily Carter", example.com). Captured at 2x, 1400×1077 WebP, 47 KB, eager-loaded |
+| NU Insights screenshot | Live Course Builder: CS BACS, 2026–2027 catalog, Systems concentration, "Fill without AI", first year cropped. 1400×784 WebP, 36 KB, `loading="lazy"` |
+| Résumé | `assets/resume-portfolio.pdf` compiled from the unchanged `.tex` with pdfLaTeX; PDF title and author set at compile time. Intro: blue "View résumé (PDF)". Footer: "Résumé (PDF)" pill. Same-tab link, so the browser's PDF viewer opens it |
+| Favicon | SVG "JK" monogram, ink on canvas |
+| Social preview | `og:title`, `og:description`, `og:url`, and a `summary` card. No `og:image`, since no approved preview image exists |
+| Placeholders | All removed (`.pending` and `.shot-placeholder` CSS deleted) |
+
+Verified 2026-10-14:
+- PDF: one page, readable. Text extracted with PDFKit contains `kelly.jos@northeastern.edu`, and no phone-like pattern appears in the text or the raw file. Its links are mailto, LinkedIn, usemailcart.com, and nuinsights.josephkelly.dev. Metadata holds title, author, and pdfTeX producer only.
+- Local server returns 200 with the correct content type for the HTML, PDF, WebP, and SVG files. The nu-insights repo returns 200.
+- No horizontal overflow at 320, 390, 768, 1100, or 1440 px.
+- Both images load with their declared dimensions and alt text.
+- "View résumé (PDF)" is the sixth Tab stop, after the skip link, name, and nav.
+- `public/` contains no `.tex` file and no phone-like strings. The `.tex` source is unchanged (SHA-1 `f5b8e622…`).
+
 ## Carried into later stages
 
-- Stage 2: until the PDF exists, show "Résumé PDF pending" instead of a live résumé link.
-- Stage 4: capture actual MailCart and NU Insights screenshots and export `public/assets/resume-portfolio.pdf` without a phone number. Replace both `.pending` spans with `<a class="button button-primary" href="assets/resume-portfolio.pdf">View résumé</a>` (the footer copy may stay a plain pill), and replace the `.shot-placeholder` divs with `<img>` elements (explicit width, height, and alt text) in a frame with the same radius and shadow.
+- Stage 5: open the PDF on a real phone (only desktop Chromium serving was checked). Decide whether a social preview image is wanted.
 - Stage 5: recheck that all supplied URLs resolve (all passed in Stage 2).

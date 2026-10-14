@@ -21,7 +21,7 @@ Once implemented, the HTML is the single authoritative copy of visible content. 
 
 | Label | Destination | Treatment |
 | --- | --- | --- |
-| View résumé | `/assets/resume-portfolio.pdf` (created in Stage 4) | Primary action |
+| View résumé (PDF) | `assets/resume-portfolio.pdf` | Primary action |
 | GitHub | https://github.com/joseph-kelly1 | Secondary |
 | LinkedIn | https://linkedin.com/in/joseph-kelly4/ | Secondary |
 | Email | mailto:kelly.jos@northeastern.edu | Secondary |
@@ -33,7 +33,7 @@ Order: MailCart, then NU Insights.
 ### MailCart
 
 - Live site: https://usemailcart.com
-- Repository: none; no link shown unless Joseph later supplies a public URL
+- Repository: none public; no link shown
 - Role: Founder & Full-Stack Developer · Mar 2026 – present
 - Problem: "Personalized outreach usually means copying and pasting the same message into dozens of emails. MailCart turns a spreadsheet into individually personalized emails sent from your own Gmail or Outlook mailbox."
 - Contributions:
@@ -41,12 +41,12 @@ Order: MailCart, then NU Insights.
   - Integrated the Gmail and Microsoft Graph APIs, Clerk authentication, and Stripe subscriptions with team-seat billing.
   - Kept UI previews and sent messages consistent with shared cross-language personalization tests, part of a 495-test suite.
 - Technologies: React, FastAPI, PostgreSQL, Stripe, Clerk, OpenAI API
-- Screenshot: actual product view, captured in Stage 4
+- Screenshot: composer with live preview from the public home page, example contact data (`assets/images/mailcart-composer.webp`)
 
 ### NU Insights
 
 - Live site: https://nuinsights.josephkelly.dev
-- Repository: none; no link shown unless Joseph later supplies a public URL
+- Repository: https://github.com/joseph-kelly1/nu-insights (public; found under Joseph's GitHub account in Stage 4, and its README links the live app)
 - Role: Creator & Developer · Jan 2026 – present
 - Problem: "Planning a Northeastern degree means juggling prerequisites, credit limits, co-op terms, and changing catalog requirements. NU Insights builds a semester-by-semester plan that satisfies them."
 - Contributions:
@@ -54,7 +54,7 @@ Order: MailCart, then NU Insights.
   - Scraped 6,034 courses and requirements for 395 program variants, including archived catalog editions for year-specific planning.
   - Added catalog-grounded AI explanations and elective ranking across multiple LLM providers, with a deterministic fallback when a response fails.
 - Technologies: React, Flask, SQLite, OR-Tools, Docker, Railway
-- Screenshot: actual product view, captured in Stage 4
+- Screenshot: Course Builder first year of an example plan generated without AI (`assets/images/nu-insights-plan.webp`)
 
 ## 4. Background (compact)
 
