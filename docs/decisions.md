@@ -6,7 +6,8 @@
 | --- | --- |
 | 1. Content and design brief | Accepted by Joseph, 2026-10-14 |
 | 2. Working page skeleton | Complete, 2026-10-14 |
-| 3–6 | Not started |
+| 3. Visual styling | Complete, 2026-10-14 |
+| 4–6 | Not started |
 
 ## Execution policy
 
@@ -49,9 +50,29 @@ Verified 2026-10-14:
 - The page has one `h1`.
 - No phone number in `public/`.
 
+## Stage 3 implementation decisions
+
+| Decision | Outcome |
+| --- | --- |
+| Fonts | Fraunces (latin, wght + opsz axes, 67 KB) and Public Sans (latin, wght, 27 KB) from Fontsource 5.3.0; OFL texts in `public/assets/fonts/`; both preloaded |
+| Tokens | OKLCH custom properties; full table in `plans/DESIGN.md` → Implemented system |
+| Project layout | 5:7 copy/screenshot grid at ≥60rem, alternating sides; stacked below |
+| Background layout | Two columns at ≥48rem |
+| Footer | Dark `--night` surface (optional DESIGN.md role, now used) |
+| Professional links | Outline pills; résumé stays a dashed "pending" pill until Stage 4 swaps in `.button-primary` |
+| Motion | Color transitions and smooth scroll only, disabled under reduced motion |
+| Unused palette | Olive, clay, ochre not used |
+
+Verified 2026-10-14 in Chromium (playwright-cli):
+- No horizontal overflow at 320, 390, 768, 1100, or 1440 px, or at 640 px (200% zoom of a 1280 px window).
+- Layout holds at 320 px with the font files blocked.
+- Every link and pill outside running text is at least 44 px tall.
+- The focus ring is visible on pills, and the primary pill renders as white on `--action`.
+- Contrast pairs are listed in DESIGN.md; the lowest text pair is 4.6:1.
+- Not tested: Safari/Firefox, real touch devices, and real browser zoom (emulated by viewport width).
+
 ## Carried into later stages
 
 - Stage 2: until the PDF exists, show "Résumé PDF pending" instead of a live résumé link.
-- Stage 3: confirm the OFL license file ships with downloaded Fraunces and Public Sans files before committing them. Decide whether the project image/copy layout alternates.
-- Stage 4: capture actual MailCart and NU Insights screenshots and export `public/assets/resume-portfolio.pdf` without a phone number.
+- Stage 4: capture actual MailCart and NU Insights screenshots and export `public/assets/resume-portfolio.pdf` without a phone number. Replace both `.pending` spans with `<a class="button button-primary" href="assets/resume-portfolio.pdf">View résumé</a>` (the footer copy may stay a plain pill), and replace the `.shot-placeholder` divs with `<img>` elements (explicit width, height, and alt text) in a frame with the same radius and shadow.
 - Stage 5: recheck that all supplied URLs resolve (all passed in Stage 2).
