@@ -14,8 +14,9 @@ Once implemented, the HTML is the single authoritative copy of visible content. 
 ## 1. Introduction
 
 - Heading: **Joseph Kelly**
-- Role line: "Computer science student building full-stack software."
-- Bio: "I study computer science at Northeastern University with a concentration in systems. I build products end to end, from schedulers and data pipelines to billing and email delivery, and I'm currently a Technical Operations & Automation Co-op at SLATE."
+- Line 1: "Computer Science at Northeastern"
+- Line 2: "Technical Operations & Automation Co-op at SLATE"
+- No bio paragraph (removed at Joseph's request, 2026-10-14).
 
 ## 2. Professional links (directly under the introduction)
 
@@ -28,7 +29,7 @@ Once implemented, the HTML is the single authoritative copy of visible content. 
 
 ## 3. Selected projects
 
-Order: MailCart, then NU Insights.
+Order: MailCart, NU Insights, Auto Lead.
 
 ### MailCart
 
@@ -56,6 +57,21 @@ Order: MailCart, then NU Insights.
 - Technologies: React, Flask, SQLite, OR-Tools, Docker, Railway
 - Screenshot: Course Builder first year of an example plan generated without AI (`assets/images/nu-insights-plan.webp`)
 
+### Auto Lead
+
+Added at Joseph's request on 2026-10-14. Facts come from the public repository README.
+
+- Live site: none (the app requires an access key); no live link
+- Repository: https://github.com/joseph-kelly1/auto-lead
+- Role: Personal project · Aug 2026 – present (first commit 2026-08-03)
+- Problem: "Which single-family parcels could support a financially viable teardown and rebuild? Auto Lead screens Massachusetts properties by combining parcel geometry, zoning, environmental constraints, comparable sales, and a project cost model, and it shows the assumptions behind every result."
+- Contributions:
+  - Built a Python and NumPy pipeline that runs spatial joins and explainable scoring offline, publishing Parquet attributes and PMTiles geometry instead of relying on a runtime spatial database.
+  - Built a Next.js viewer that filters data in the browser with DuckDB-WASM, linking a MapLibre parcel map, a virtualized table, and a detail panel with downside scenarios.
+  - Evaluated the model on 36,296 parcels across five towns and reported that a simpler structure-obsolescence baseline outperformed the combined score (AUC 0.840 vs. 0.601).
+- Technologies: Python, DuckDB, NumPy, Next.js, TypeScript, MapLibre, PMTiles
+- Screenshot: the repository's own synthetic-demo image (120 fictional parcels) (`assets/images/auto-lead-demo.webp`)
+
 ## 4. Background (compact)
 
 **Education**
@@ -72,7 +88,7 @@ Leadership and coursework are omitted; the resume carries them.
 
 ## 5. Footer / contact
 
-- Line: "Get in touch: kelly.jos@northeastern.edu"
+- Line: "Get in touch: kelly.jos@northeastern.edu or josephkelly1107@gmail.com" (personal email added at Joseph's request, 2026-10-14)
 - Repeat links: Email, GitHub, LinkedIn, Resume
 - No phone number anywhere.
 
@@ -162,17 +178,12 @@ Image/copy alternation on the second project is optional; decide in Stage 3.
 
 Mobile order inside each project: title, role, screenshot, problem, contributions, technologies, links. Professional links wrap; nothing scrolls horizontally.
 
-## Visual choices for review
+## Current visual choices
 
-**Direction (approved):** `plans/DESIGN.md` as written: warm paper, serif headings, sans body, one blue action, real screenshots.
+**Direction:** warm paper, clean sans-serif headings and body, one blue action, and real screenshots.
 
-**Fonts** (all SIL Open Font License 1.1, self-hostable; confirm the license file ships with the downloaded files before committing them in Stage 3):
+**Fonts:** Joseph selected Sora after comparing font options. Use self-hosted Sora at weight 500 for headings, site name, and role line; keep Public Sans for body text and controls. Use system sans-serif fallbacks when either font is unavailable.
 
-| Option | Headings | Body | Character |
-| --- | --- | --- | --- |
-| A (approved) | Fraunces, light–regular, optical size on | Public Sans 400/600 | Warm, slightly expressive serif; neutral sans |
-| B (not chosen) | Newsreader, regular | Public Sans 400/600 | Quieter, more editorial |
-
-Fallbacks: `Georgia, serif` for headings, `system-ui, sans-serif` for body.
+Sora and Public Sans use SIL Open Font License 1.1; both licenses are stored beside the font assets. Fraunces is retained as an unused asset, but it is neither declared nor preloaded by the page.
 
 **Primary action (approved):** "View resume" as a blue pill button with white text. Contrast note: white text on `#2a72de` is about 4.6:1 (passes AA). Canvas-colored text (`#f7f1e8`) on that blue is about 4.1:1 and fails for normal-size text, so the button needs white text or a slightly darker blue.

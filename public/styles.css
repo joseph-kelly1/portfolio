@@ -1,8 +1,8 @@
 /* Fonts: SIL OFL 1.1, from Fontsource 5.3.0. See assets/fonts/*-OFL.txt */
 @font-face {
-  font-family: "Fraunces";
-  src: url("assets/fonts/fraunces-latin-opsz.woff2") format("woff2");
-  font-weight: 100 900;
+  font-family: "Sora";
+  src: url("assets/fonts/sora-latin-wght.woff2") format("woff2");
+  font-weight: 100 800;
   font-style: normal;
   font-display: swap;
 }
@@ -29,8 +29,8 @@
   --fog: oklch(81.9% 0.017 82.8);        /* #c9c3b8, 10:1 on --night */
   --focus: var(--action);                /* 4.1:1 on canvas */
 
-  --serif: "Fraunces", Georgia, "Times New Roman", serif;
   --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --text: 1.0625rem;
   --text-small: 0.9375rem;
@@ -71,8 +71,8 @@ body {
 
 h1, h2, h3 {
   margin: 0;
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--display);
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.01em;
   text-wrap: balance;
@@ -123,7 +123,8 @@ main:focus { outline: none; }
 }
 
 .site-name {
-  font-family: var(--serif);
+  font-family: var(--display);
+  font-weight: 500;
   font-size: 1.25rem;
   text-decoration: none;
 }
@@ -153,23 +154,20 @@ nav a:hover { color: var(--ink); text-decoration: underline; }
 
 .intro h1 {
   font-size: var(--h1);
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: -0.025em;
 }
 
 .role {
   margin-top: 1.25rem;
-  font-family: var(--serif);
+  font-family: var(--display);
+  font-weight: 500;
   font-size: var(--text-lead);
   line-height: 1.35;
 }
 
-.intro .role + p {
-  margin-top: 1.25rem;
-  color: var(--stone);
-  font-size: clamp(var(--text), 0.95rem + 0.3vw, 1.1875rem);
-}
+.role + .role { margin-top: 0.5rem; }
 
 /* Professional links: pills */
 .links {

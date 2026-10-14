@@ -23,9 +23,11 @@ assets/resume-portfolio.pdf
 assets/images/mailcart-composer.webp
 assets/images/nu-insights-plan.webp
 assets/fonts/fraunces-latin-opsz.woff2
+assets/fonts/sora-latin-wght.woff2
 assets/fonts/public-sans-latin-wght.woff2
 assets/fonts/Fraunces-OFL.txt
 assets/fonts/PublicSans-OFL.txt
+assets/fonts/Sora-OFL.txt
 ```
 
 ## Local preview (not production)

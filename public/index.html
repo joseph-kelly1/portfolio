@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://josephkelly.dev/">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/fraunces-latin-opsz.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/sora-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/public-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -32,8 +32,8 @@
   <main id="main" tabindex="-1">
     <section id="top" class="intro" aria-labelledby="intro-heading">
       <h1 id="intro-heading">Joseph Kelly</h1>
-      <p class="role">Computer science student building full-stack software.</p>
-      <p>I study computer science at Northeastern University with a concentration in systems. I build products end to end, from schedulers and data pipelines to billing and email delivery, and I'm currently a Technical Operations &amp; Automation Co-op at SLATE.</p>
+      <p class="role">Computer Science at Northeastern</p>
+      <p class="role">Technical Operations &amp; Automation Co-op at SLATE</p>
 
       <ul class="links" aria-label="Professional links">
         <li><a class="button button-primary" href="assets/resume-portfolio.pdf">View resume (PDF)</a></li>
@@ -73,6 +73,20 @@
         <p class="tech"><span class="visually-hidden">Technologies: </span>React · Flask · SQLite · OR-Tools · Docker · Railway</p>
         <p class="project-links"><a href="https://nuinsights.josephkelly.dev">Visit NU Insights</a> <a href="https://github.com/joseph-kelly1/nu-insights">View NU Insights code on GitHub</a></p>
       </article>
+
+      <article class="project" aria-labelledby="autolead-heading">
+        <h3 id="autolead-heading">Auto Lead</h3>
+        <p class="meta">Personal project · Aug 2026 – present</p>
+        <img class="shot" src="assets/images/auto-lead-demo.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Auto Lead viewer running its synthetic demo: town and score filters on the left, a parcel map above a table ranked by score with margin and profit, and a detail panel breaking one fictional parcel's 0.853 score into feasibility, economics, and confidence.">
+        <p>Which single-family parcels could support a financially viable teardown and rebuild? Auto Lead screens Massachusetts properties by combining parcel geometry, zoning, environmental constraints, comparable sales, and a project cost model, and it shows the assumptions behind every result.</p>
+        <ul>
+          <li>Built a Python and NumPy pipeline that runs spatial joins and explainable scoring offline, publishing Parquet attributes and PMTiles geometry instead of relying on a runtime spatial database.</li>
+          <li>Built a Next.js viewer that filters data in the browser with DuckDB-WASM, linking a MapLibre parcel map, a virtualized table, and a detail panel with downside scenarios.</li>
+          <li>Evaluated the model on 36,296 parcels across five towns and reported that a simpler structure-obsolescence baseline outperformed the combined score (AUC 0.840 vs. 0.601).</li>
+        </ul>
+        <p class="tech"><span class="visually-hidden">Technologies: </span>Python · DuckDB · NumPy · Next.js · TypeScript · MapLibre · PMTiles</p>
+        <p class="project-links"><a href="https://github.com/joseph-kelly1/auto-lead">View Auto Lead code on GitHub</a></p>
+      </article>
     </section>
 
     <section id="background" aria-labelledby="background-heading">
@@ -93,7 +107,7 @@
 
   <footer id="contact" class="site-footer">
     <h2>Contact</h2>
-    <p>Get in touch: <a href="mailto:kelly.jos@northeastern.edu">kelly.jos@northeastern.edu</a></p>
+    <p>Get in touch: <a href="mailto:kelly.jos@northeastern.edu">kelly.jos@northeastern.edu</a> or <a href="mailto:josephkelly1107@gmail.com">josephkelly1107@gmail.com</a></p>
     <ul class="links" aria-label="Professional links">
       <li><a href="mailto:kelly.jos@northeastern.edu">Email</a></li>
       <li><a href="https://github.com/joseph-kelly1">GitHub</a></li>

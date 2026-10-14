@@ -39,10 +39,12 @@ The command sets the PDF title and author without editing the source. Before pub
 
 | File | Source | Rights |
 | --- | --- | --- |
-| `assets/fonts/fraunces-latin-opsz.woff2` | Fontsource `@fontsource-variable/fraunces` 5.3.0 (latin, wght + opsz) | SIL OFL 1.1, `Fraunces-OFL.txt` |
+| `assets/fonts/fraunces-latin-opsz.woff2` | Fontsource `@fontsource-variable/fraunces` 5.3.0 (latin, wght + opsz); retained but no longer loaded | SIL OFL 1.1, `Fraunces-OFL.txt` |
+| `assets/fonts/sora-latin-wght.woff2` | Fontsource `@fontsource-variable/sora` 5.3.0 (latin, wght), headings/name/role | SIL OFL 1.1, `Sora-OFL.txt` |
 | `assets/fonts/public-sans-latin-wght.woff2` | Fontsource `@fontsource-variable/public-sans` 5.3.0 (latin, wght) | SIL OFL 1.1, `PublicSans-OFL.txt` |
 | `assets/images/mailcart-composer.webp` | Composer preview on the public usemailcart.com home page; example contact data only | Joseph's product |
 | `assets/images/nu-insights-plan.webp` | Course Builder on nuinsights.josephkelly.dev with an example plan (Computer Science, BACS, 2026–2027 catalog, Systems concentration, "Fill without AI") | Joseph's product |
+| `assets/images/auto-lead-demo.webp` | `docs/assets/demo.png` in github.com/joseph-kelly1/auto-lead (synthetic demo, fictional parcels) | Joseph's project |
 | `assets/favicon.svg` | Hand-written "JK" monogram | Original |
 
 ### Replacing a screenshot

@@ -64,3 +64,13 @@ None were needed: no defects were found.
 Joseph requested regular e characters in the resume labels. Updated the intro action to “View resume (PDF)”, the footer link to “Resume (PDF)”, and the page/social descriptions to plain “resume”. Refreshed the localhost browser and confirmed both link labels. Both links still target `assets/resume-portfolio.pdf`; the PDF itself is unchanged. This was a copy-only change, not a repeat of the complete Stage 5 QA run.
 
 Stage 6 is deferred while Joseph makes UI changes. Recheck affected areas before any eventual deployment.
+
+## Subsequent typography change
+
+Replaced the decorative serif with Public Sans for headings, the site name, and the role line at Joseph's request. Refreshed localhost and visually checked the revised title. Computed styles confirm Public Sans for both the main heading and site name; no horizontal overflow occurs at the current browser width. Fraunces is no longer declared or preloaded. This is a targeted check of the font change, not a repeat of the complete Stage 5 QA run.
+
+## Selected Sora typography
+
+Joseph selected Sora from the comparison. The site now self-hosts Sora 500 for headings, site name, and role line, while retaining Public Sans for body text. Its variable WOFF2 is from `@fontsource-variable/sora` 5.3.0, downloaded with package integrity checked and its OFL license retained.
+
+Refreshed localhost and visually checked the heading. Computed styles confirm Sora 500 for the main heading and Public Sans for the body. No horizontal overflow at 320, 390, or 1440 pixels; temporary viewport overrides were reset afterward. The complete Stage 5 QA suite was not repeated. Hosting remains deferred.
