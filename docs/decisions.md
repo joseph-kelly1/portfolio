@@ -8,7 +8,8 @@
 | 2. Working page skeleton | Complete, 2026-10-14 |
 | 3. Visual styling | Complete, 2026-10-14 |
 | 4. Projects and public résumé | Complete, 2026-10-14 |
-| 5–6 | Not started |
+| 5. QA and deployment handoff | Complete, 2026-10-14; awaiting Joseph's final acceptance |
+| 6. Railway and Cloudflare release | Deferred by Joseph pending UI changes; do not start |
 
 ## Execution policy
 
@@ -93,7 +94,17 @@ Verified 2026-10-14:
 - "View résumé (PDF)" is the sixth Tab stop, after the skip link, name, and nav.
 - `public/` contains no `.tex` file and no phone-like strings. The `.tex` source is unchanged (SHA-1 `f5b8e622…`).
 
+## Stage 5 outcome
+
+- QA was run in Chromium; every check that was run passed. No code changes were needed. Evidence and limitations: `docs/qa.md`.
+- Handoff for Codex: `docs/deployment-handoff.md`. Serve `public/` with no build step; there are no environment variables; the PDF is committed.
+- Open, non-blocking content choices: the NU Insights code link, the Khoury "Science"/"Sciences" wording, and an `og:image`.
+
 ## Carried into later stages
 
-- Stage 5: open the PDF on a real phone (only desktop Chromium serving was checked). Decide whether a social preview image is wanted.
-- Stage 5: recheck that all supplied URLs resolve (all passed in Stage 2).
+- Stage 6: after deploy, spot-check Safari, a real phone (including the PDF), and the custom-domain journey (`docs/deployment-handoff.md`). Decide on a `www` alias.
+
+## Current UI revisions
+
+- Use plain “resume” / “Resume” in site labels and metadata, with regular unaccented e characters, as requested by Joseph.
+- Stage 6 remains deferred while Joseph makes UI changes. Do not provision, deploy, or change DNS until he explicitly requests hosting.

@@ -10,12 +10,14 @@ python3 -m http.server 8000 --directory public
 
 Then open http://localhost:8000.
 
+This is a development preview, not production hosting. There is no build step and there are no dependencies or environment variables. Deployment notes are in `docs/deployment-handoff.md` and QA evidence is in `docs/qa.md`.
+
 ## Layout
 
 - `public/index.html`: page content (the authoritative copy of visible text)
 - `public/styles.css`: styles and design tokens
 - `public/assets/`: fonts, screenshots, favicon, public résumé PDF
-- `docs/`: content brief, decisions, QA notes
+- `docs/`: content brief (`content.md`), decisions, QA report (`qa.md`), deployment handoff
 - `resume/resume-portfolio.tex`: résumé source, kept outside the web root
 
 ## Public résumé PDF

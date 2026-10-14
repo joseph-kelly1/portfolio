@@ -9,7 +9,7 @@ Once implemented, the HTML is the single authoritative copy of visible content. 
 ## Page title and metadata
 
 - Page title: `Joseph Kelly — Software Portfolio`
-- Meta description: "Joseph Kelly is a computer science student at Northeastern University building full-stack software. Projects, résumé, and contact."
+- Meta description: "Joseph Kelly is a computer science student at Northeastern University building full-stack software. Projects, resume, and contact."
 
 ## 1. Introduction
 
@@ -21,7 +21,7 @@ Once implemented, the HTML is the single authoritative copy of visible content. 
 
 | Label | Destination | Treatment |
 | --- | --- | --- |
-| View résumé (PDF) | `assets/resume-portfolio.pdf` | Primary action |
+| View resume (PDF) | `assets/resume-portfolio.pdf` | Primary action |
 | GitHub | https://github.com/joseph-kelly1 | Secondary |
 | LinkedIn | https://linkedin.com/in/joseph-kelly4/ | Secondary |
 | Email | mailto:kelly.jos@northeastern.edu | Secondary |
@@ -60,7 +60,7 @@ Order: MailCart, then NU Insights.
 
 **Education**
 Northeastern University, Khoury College of Computer Science — B.S. in Computer Science, Systems Concentration, Minor in Mathematics. Expected May 2028.
-GPA is not shown on the page; the résumé carries it.
+GPA is not shown on the page; the resume carries it.
 
 **Experience**
 - SLATE — Technical Operations & Automation Co-op · Jul 2026 – present
@@ -68,12 +68,12 @@ GPA is not shown on the page; the résumé carries it.
 - Alactive, London — Mobile Frontend Engineer · Nov 2024 – Dec 2024
   "Shipped SwiftUI features for an early-stage iOS app."
 
-Leadership and coursework are omitted; the résumé carries them.
+Leadership and coursework are omitted; the resume carries them.
 
 ## 5. Footer / contact
 
 - Line: "Get in touch: kelly.jos@northeastern.edu"
-- Repeat links: Email, GitHub, LinkedIn, Résumé
+- Repeat links: Email, GitHub, LinkedIn, Resume
 - No phone number anywhere.
 
 ## Wireframes
@@ -89,7 +89,7 @@ Leadership and coursework are omitted; the résumé carries them.
 |  Computer science student building full-stack software.            |
 |  Bio, two sentences, max ~70ch                                     |
 |                                                                    |
-|  ( View résumé )   GitHub   LinkedIn   Email                       |
+|  ( View resume )   GitHub   LinkedIn   Email                       |
 |                                                                    |
 |---------------------------------------------- hairline ------------|
 |  Selected projects                                                 |
@@ -115,7 +115,7 @@ Leadership and coursework are omitted; the résumé carries them.
 |  Northeastern, B.S. CS ...    |  SLATE — Co-op                     |
 |                               |  Alactive — Mobile Frontend        |
 +--------------------------------------------------------------------+
-| kelly.jos@northeastern.edu      Email  GitHub  LinkedIn  Résumé    |
+| kelly.jos@northeastern.edu      Email  GitHub  LinkedIn  Resume    |
 +--------------------------------------------------------------------+
 ```
 
@@ -135,7 +135,7 @@ Image/copy alternation on the second project is optional; decide in Stage 3.
 | software.                |
 | Bio ...                  |
 |                          |
-| ( View résumé )          |
+| ( View resume )          |
 | GitHub  LinkedIn  Email  |
 |--------------------------|
 | Selected projects        |
@@ -156,7 +156,7 @@ Image/copy alternation on the second project is optional; decide in Stage 3.
 | Experience               |
 |--------------------------|
 | Email                    |
-| GitHub LinkedIn Résumé   |
+| GitHub LinkedIn Resume   |
 +--------------------------+
 ```
 
@@ -175,4 +175,4 @@ Mobile order inside each project: title, role, screenshot, problem, contribution
 
 Fallbacks: `Georgia, serif` for headings, `system-ui, sans-serif` for body.
 
-**Primary action (approved):** "View résumé" as a blue pill button with white text. Contrast note: white text on `#2a72de` is about 4.6:1 (passes AA). Canvas-colored text (`#f7f1e8`) on that blue is about 4.1:1 and fails for normal-size text, so the button needs white text or a slightly darker blue.
+**Primary action (approved):** "View resume" as a blue pill button with white text. Contrast note: white text on `#2a72de` is about 4.6:1 (passes AA). Canvas-colored text (`#f7f1e8`) on that blue is about 4.1:1 and fails for normal-size text, so the button needs white text or a slightly darker blue.

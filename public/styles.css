@@ -197,7 +197,7 @@ nav a:hover { color: var(--ink); text-decoration: underline; }
 .links a:hover, .button:hover { background: oklch(22.3% 0.002 67.7 / 0.06); }
 .links a:active, .button:active { transform: translateY(1px); }
 
-/* Primary action: View résumé */
+/* Primary action: View resume */
 .button-primary {
   border-color: var(--action);
   background: var(--action);
