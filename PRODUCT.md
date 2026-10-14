@@ -46,6 +46,10 @@ Content lives in `docs/content.md`. Section order:
 
 Email is public. The phone number must never appear in source, metadata, screenshots, the PDF, or other public assets. The original résumé outside this repository stays unchanged.
 
+## Execution policy
+
+When Joseph requests implementation of a stage, begin that stage directly using the existing brief. Do not require another plan or design confirmation before doing the requested work. Plan internally as needed, implement and verify the stage, then report completion. Stop at the requested scope boundary so Joseph can choose the next stage.
+
 ## Technical constraints
 
 Static HTML and CSS, with JavaScript only for a specific approved need. No framework, backend, database, CMS, auth, contact form, or analytics in the initial version. Hosting (Railway) and DNS (Cloudflare) are handled only in Stage 6.

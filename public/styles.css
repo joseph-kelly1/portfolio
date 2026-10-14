@@ -1,0 +1,92 @@
+/* Stage 2: legibility, reading width, focus, narrow-screen stack only. Art direction lands in Stage 3. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 1rem;
+  font: 1.0625rem/1.5 system-ui, sans-serif;
+  color: #1c1b1a;
+  background: #f7f1e8;
+  overflow-wrap: break-word;
+}
+
+.site-header, main, .site-footer {
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+nav ul, .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* 44px touch targets */
+nav a, .links a, .links .pending, .site-name {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+a { color: #1c1b1a; }
+
+:focus-visible {
+  outline: 3px solid #2a72de;
+  outline-offset: 2px;
+}
+
+main:focus { outline: none; }
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  padding: 0.5rem 1rem;
+  background: #1c1b1a;
+  color: #fff;
+}
+
+.skip-link:focus { top: 0.5rem; }
+
+section { padding: 2rem 0; border-top: 1px solid #e1dcd3; }
+.intro { border-top: 0; }
+
+.role, .meta, .tech, .pending { color: #4a4741; }
+
+.pending { font-style: italic; }
+
+.shot-placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  border: 2px dashed #4a4741;
+  color: #4a4741;
+}
+
+.project + .project { margin-top: 2.5rem; }
+
+dd { margin: 0 0 1rem; }
+
+.site-footer { padding: 2rem 0 3rem; border-top: 1px solid #e1dcd3; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

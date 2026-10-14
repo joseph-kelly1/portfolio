@@ -1,6 +1,6 @@
 # Portfolio Content Brief
 
-Status: **Approved by Joseph on 2026-10-14 (Stage 1).** Copy below is accepted as written; later stages may refine wording only with Joseph's approval.
+Status: **Approved by Joseph on 2026-10-14 (Stage 1).** Copy below is the established brief. When Joseph requests an implementation stage or revision, carry out that work directly using this copy; do not add a separate plan-confirmation round. Preserve factual claims and the agreed direction.
 
 Source of facts: `resume/resume-portfolio.tex` and `plans/PLAN.md`. Links below are supplied, not yet checked; they are validated in Stage 2 and Stage 5.
 
