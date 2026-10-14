@@ -1,0 +1,99 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[none]{hyphenat}
+\usepackage[left=0.5in,right=0.5in,top=0.3in,bottom=0.3in]{geometry}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[svgnames,x11names,table]{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=SlateBlue4}
+\pagestyle{empty}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.55em,topsep=1.5pt,itemsep=0pt,parsep=0pt,partopsep=0pt}
+\newcommand{\header}[1]{\par\vspace{6pt}\textsc{#1}\par\nobreak\vspace{1pt}\hrule\vspace{4pt}}
+\newcommand{\role}[4]{%
+  \begin{tabularx}{\textwidth}{@{}lXr@{}}
+    \textbf{#1} & & \textbf{#2} \\
+    \textit{#3} & & \textit{#4} \\
+  \end{tabularx}\vspace{-3pt}%
+}
+\begin{document}
+
+%==== Profile ==== %
+\begin{center}
+  {\huge\textbf{\scshape Joseph Kelly}}\\[2pt]
+  \href{mailto:kelly.jos@northeastern.edu}{kelly.jos@northeastern.edu} $\cdot$
+  \href{https://linkedin.com/in/joseph-kelly4/}{linkedin.com/in/joseph-kelly4/}
+\end{center}
+\vspace{-9pt}
+
+%==== Education ====%
+\header{Education}
+\textbf{Northeastern University} \hfill \textbf{Boston, MA} \\
+\vspace{0.5mm}
+\textit{Khoury College of Computer Science} \hfill \textbf{GPA: 3.73/4.00} \\
+\textit{B.S. in Computer Science, Systems Concentration, Minor in Mathematics}
+\hfill \textit{May 2028} \\[2pt]
+\textit{Relevant Coursework:} Algorithms and Data, Fundamentals of Software Engineering, Object-Oriented Design, Introduction to Databases, Mathematical Foundations of Artificial Intelligence, Programming in C++, Foundations of Cybersecurity, Probability and Statistics, Theory of Computation, Discrete Structures, Fundamentals of Computer Science 1 \& 2, Multivariable Calculus
+
+%==== Experience ==== %
+\header{Experience}
+\role{SLATE}{}{Technical Operations \& Automation Co-op}{Jul 2026 -- Present}
+\begin{itemize}
+  \item Engineered and deployed a Python/FastAPI QA system to automate daily validation of standardized healthcare claims against original source files across 23 administrators; tested 1,678 cases spanning 8,219 files (6.5 GB) across diverse formats.
+  \item Built specialized parsers for spreadsheets, delimited files, and fixed-width pharmacy records with 459 configurable validation rules; accelerated CSV parsing 10x using PyArrow and reduced test suite runtime 32\%, preserving results across 469 regression tests.
+  \item Developed a 3-stage LLM pipeline to identify financial exposure in healthcare plans and stop-loss contracts across 168 audit questions, incorporating OCR, Pydantic-validated outputs, secondary LLM verification, and 74 passing tests with pytest.
+  \item Created an internal Python tool to de-identify protected health information, enabling privacy-conscious AI workflows.
+  \item Led a team-wide overhaul of client project planning, introducing user stories and Conditions of Satisfaction to clarify requirements, strengthen project tracking, and align deliverables with client expectations throughout client projects.
+\end{itemize}
+\vspace{2pt}
+\role{Alactive}{London, UK}{Mobile Frontend Engineer}{Nov 2024 -- Dec 2024}
+\begin{itemize}
+  \item Delivered 3 SwiftUI iOS features through 4 peer-reviewed pull requests with an early-stage startup engineering team.
+  \item Refactored 15 deprecated SwiftUI components to reduce technical debt and improve maintainability across the iOS app.
+\end{itemize}
+
+%==== Projects ==== %
+\header{Projects}
+\textbf{\href{https://usemailcart.com}{MailCart} -- Founder \& Full-Stack Developer} \hfill \textit{Mar 2026 -- Present}\\
+\textit{React, FastAPI, PostgreSQL, Stripe, Clerk, OpenAI API}\vspace{-2pt}
+\begin{itemize}
+  \item Built and deployed a full-stack SaaS for personalized email outreach using React, FastAPI, and PostgreSQL; integrated Gmail and Microsoft Graph APIs and recorded 477 successful provider sends across 21 campaigns through connected mailboxes.
+  \item Engineered asynchronous per-recipient email sending with spreadsheet-driven personalization, conditional HTML, inline images, attachments, and live NDJSON progress streaming; implemented cancellation, retry handling, and persisted send outcomes.
+  \item Developed 47 REST API endpoints and 13 PostgreSQL tables, integrating Clerk authentication, Stripe subscriptions and team-seat billing, AI-assisted email generation, server-enforced usage limits, Stripe billing webhooks, and admin analytics.
+  \item Maintained 495 passing automated tests (387 backend, 108 frontend) across 30 test files, covering API integrations, authentication, billing, email rendering, and 20 shared cross-language personalization scenarios aligning UI previews with sent messages.
+\end{itemize}
+\vspace{2pt}
+\textbf{\href{https://nuinsights.josephkelly.dev}{NU Insights} -- AI Course \& Degree Planner} \hfill \textit{Jan 2026 -- Present}\\
+\textit{React, Flask, SQLite, OR-Tools, OpenRouter API, Docker, Railway}\vspace{-2pt}
+\begin{itemize}
+  \item Engineered an OR-Tools CP-SAT semester planner enforcing prerequisites, corequisites, credit limits, and degree requirements; preserved completed and pinned courses, accommodated co-op terms, and verified planning logic with 52 automated tests.
+  \item Built and deployed a React/Flask application backed by indexed SQLite; scraped 6,034 courses across 162 subjects and requirements for 395 undergraduate program variants, adding four archived catalog editions for year-specific degree planning.
+  \item Integrated 4 LLM providers (OpenAI, Anthropic, Gemini, and OpenRouter) for catalog-grounded explanations and personalized elective ranking. Validated course selections and added deterministic fallback for malformed responses, timeouts, and rate limits.
+\end{itemize}
+
+%==== Leadership and Community ==== %
+\header{Leadership \& Community}
+\role{Northeastern Men's Club Volleyball}{Boston, MA}{Treasurer}{Apr 2026 -- Present}
+\begin{itemize}
+  \item Manage team finances and prepare monthly financial reports tracking expenses, tournament costs, player dues, and budgets.
+  \item Coordinate travel logistics, flights, hotels, tournament fees, and fundraising to control team expenses and minimize player dues.
+\end{itemize}
+\vspace{1pt}
+\role{Experience Camps}{Oakland, ME}{Cabin Counselor}{Aug 2024 -- Present}
+\begin{itemize}
+  \item Mentor grieving children at overnight camp, providing emotional support and ensuring safety during medical emergencies.
+\end{itemize}
+
+%==== Technical Knowledge ==== %
+\header{Technical Knowledge}
+\textbf{Languages:} Python, JavaScript, Java, SQL, C++, TypeScript, Swift, Kotlin, HTML, CSS\\
+\textbf{Frameworks/Libraries:} React, FastAPI, Flask, OR-Tools, SwiftUI, pandas, PyArrow, Pydantic, BeautifulSoup, pytest\\
+\textbf{Databases/Infrastructure:} PostgreSQL, SQLite, Docker, Vercel, Railway, Git, GitHub, Linux/Unix\\
+\textbf{APIs/Services:} OpenAI, Anthropic, Gemini, OpenRouter, Gmail, Microsoft Graph, Stripe, Clerk
+
+\end{document}
