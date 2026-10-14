@@ -9,7 +9,7 @@
 | 3. Visual styling | Complete, 2026-10-14 |
 | 4. Projects and public résumé | Complete, 2026-10-14 |
 | 5. QA and deployment handoff | Complete, 2026-10-14; awaiting Joseph's final acceptance |
-| 6. Railway and Cloudflare release | Deferred by Joseph pending UI changes; do not start |
+| 6. Railway and Cloudflare release | In progress; Joseph authorized deployment, 2026-10-14 |
 
 ## Execution policy
 
@@ -107,7 +107,7 @@ Verified 2026-10-14:
 ## Current UI revisions
 
 - Use plain “resume” / “Resume” in site labels and metadata, with regular unaccented e characters, as requested by Joseph.
-- Stage 6 remains deferred while Joseph makes UI changes. Do not provision, deploy, or change DNS until he explicitly requests hosting.
+- Joseph authorized Stage 6 after completing UI changes on 2026-10-14, including publishing both email addresses and the current project updates.
 
 - Hero: the role line and bio are replaced by two lines, "Computer Science at Northeastern" and "Technical Operations & Automation Co-op at SLATE", as separate `.role` paragraphs with a 0.5rem gap so they stay distinct when wrapped on phones.
 - Projects: Auto Lead added as the third project, with copy drawn only from the public repo README. It has a GitHub link and no live link. The screenshot is the README's `docs/assets/demo.png` (synthetic data, 1280×720, converted to a 66 KB WebP, lazy). The meta line "Personal project" is Claude's wording because the README states no role; Joseph may rename it. Verified: no overflow at 320, 390, 768, or 1440 px, and axe reports 0 violations.

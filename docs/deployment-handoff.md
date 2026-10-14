@@ -4,12 +4,12 @@ Prepared by Claude Code on 2026-10-14 at the end of Stage 5. Nothing has been pr
 
 ## Release status
 
-Stage 6 is deferred at Joseph's request while he makes UI changes. Do not start hosting or DNS work. Recheck affected QA after UI changes and wait for his explicit deployment request.
+Joseph authorized Railway hosting and Cloudflare DNS setup on 2026-10-14 after the UI revisions. He explicitly approved publishing both email addresses and current project updates to GitHub and the public site. Deployment is in progress.
 
 ## What to serve
 
 - **Public directory:** `public/`. Serve it as the site root.
-- **Build step:** none. Files are served as committed, with no bundler, framework, or package install.
+- **Application build step:** none. Railway Railpack detects `Staticfile`, serves only `public/` with Caddy, and reads healthcheck/restart settings from `railway.json`. No bundler, framework, or package install is needed for site content.
 - **Generated assets:** only `public/assets/resume-portfolio.pdf`, which is **committed**. It is built from `resume/resume-portfolio.tex` with pdfLaTeX (command in `README.md`). Deployment must not depend on rebuilding it. Rebuild only when the résumé changes, then commit the new PDF.
 - **Must not be served:** anything outside `public/`, including `resume/`, `docs/`, `plans/`, `PRODUCT.md`, and `README.md`.
 
@@ -22,6 +22,7 @@ assets/favicon.svg
 assets/resume-portfolio.pdf
 assets/images/mailcart-composer.webp
 assets/images/nu-insights-plan.webp
+assets/images/auto-lead-demo.webp
 assets/fonts/fraunces-latin-opsz.woff2
 assets/fonts/sora-latin-wght.woff2
 assets/fonts/public-sans-latin-wght.woff2
@@ -36,7 +37,7 @@ assets/fonts/Sora-OFL.txt
 python3 -m http.server 8000 --directory public
 ```
 
-This is a development preview only. **Codex must choose and configure the production static-serving approach after inspecting Railway's current options.** Do not assume this command is production hosting.
+This is a development preview only. **Production uses Railway Railpack's static-site provider and Caddy**, configured by `Staticfile` and `railway.json`. The Python command remains local-preview-only.
 
 ## Runtime requirements
 
@@ -82,7 +83,7 @@ Preserve every unrelated DNS record, including NU Insights and any email records
 - Full results: `docs/qa.md`. Every check that was run passed; there are 0 axe violations and no console errors.
 - **Not covered:** Safari, Firefox, real devices, the native mobile PDF viewer, and a screen reader. These are recommended spot checks once the site is on the custom domain.
 - **Launch blockers:** none in the implementation.
-- **Content approval:** the Stage 1 brief was approved on 2026-10-14. Stages 2–5 were implemented on Joseph's requests. **Joseph's final acceptance of the local implementation is still required before Stage 6.**
+- **Content approval:** the Stage 1 brief was approved on 2026-10-14. Stages 2–5 were implemented on Joseph's requests. **Joseph authorized deployment on 2026-10-14.**
 - **Open content choices (non-blocking):** the NU Insights code link, the Khoury "Science"/"Sciences" wording, and a social preview image. See `docs/qa.md`.
 
 ## Post-deploy verification (same journey on the custom domain)

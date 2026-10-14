@@ -52,3 +52,9 @@ The command sets the PDF title and author without editing the source. Before pub
 1. Capture the real interface at 2x device scale, showing example data only. Never include a personal inbox, private records, or a phone number.
 2. Convert it to WebP about 1400px wide: `cwebp -q 82 -resize 1400 0 in.png -o public/assets/images/<name>.webp`.
 3. Update the `<img>` `width`, `height`, and `alt` in `public/index.html`. Keep the first project image eager and later images `loading="lazy"`.
+
+## Production hosting
+
+Railway uses Railpack's static-site provider and Caddy. `Staticfile` explicitly limits the web root to `public/` and disables fallback routing, so missing paths return 404. `railway.json` selects Railpack and configures an HTTP healthcheck at `/`.
+
+There is no application build step. The prebuilt resume PDF, screenshots, fonts, and licenses are included in Git. Keep private source files and planning documents outside `public/`.
