@@ -1,95 +1,85 @@
-# Deployment Handoff (for Stage 6, Codex)
+# Deployment and Maintenance
 
-Prepared by Claude Code on 2026-10-14 at the end of Stage 5. Nothing has been provisioned, deployed, or changed in DNS.
+Released on 2026-10-14 after Joseph authorized hosting and explicitly approved publishing both email addresses and the current project updates.
 
-## Release status
+## Live site
 
-Joseph authorized Railway hosting and Cloudflare DNS setup on 2026-10-14 after the UI revisions. He explicitly approved publishing both email addresses and current project updates to GitHub and the public site. Deployment is in progress.
+- Portfolio: https://josephkelly.dev/
+- Railway URL: https://portfolio-production-bfd6.up.railway.app/
+- Railway project: `portfolio` (`5c8e57ef-c78e-48b6-98e4-513f6169b3ca`)
+- Railway service: `portfolio` (`1253ddb9-8148-43fc-8d0b-eabeeb09ea30`)
+- Production environment: `34ff5d48-d7f1-4e4e-9e5d-3149cee5ec54`
+- Dashboard: https://railway.com/project/5c8e57ef-c78e-48b6-98e4-513f6169b3ca
+- Repository: https://github.com/joseph-kelly1/portfolio, branch `main`
 
-## What to serve
+## Serving and runtime
 
-- **Public directory:** `public/`. Serve it as the site root.
-- **Application build step:** none. Railway Railpack detects `Staticfile`, serves only `public/` with Caddy, and reads healthcheck/restart settings from `railway.json`. No bundler, framework, or package install is needed for site content.
-- **Generated assets:** only `public/assets/resume-portfolio.pdf`, which is **committed**. It is built from `resume/resume-portfolio.tex` with pdfLaTeX (command in `README.md`). Deployment must not depend on rebuilding it. Rebuild only when the résumé changes, then commit the new PDF.
-- **Must not be served:** anything outside `public/`, including `resume/`, `docs/`, `plans/`, `PRODUCT.md`, and `README.md`.
+Railway Railpack detects the root `Staticfile` and serves `public/` with Caddy. No application build, Node/Python runtime, package install, database, or application environment variables are required.
 
-### Files under `public/`
+`Staticfile` sets `root: public` and `index_fallback: false`. Only that public directory is served. Source files under `resume/`, `docs/`, and `plans/` must remain outside it. The compiled resume PDF is committed; deployment does not rebuild LaTeX.
 
-```text
-index.html
-styles.css
-assets/favicon.svg
-assets/resume-portfolio.pdf
-assets/images/mailcart-composer.webp
-assets/images/nu-insights-plan.webp
-assets/images/auto-lead-demo.webp
-assets/fonts/fraunces-latin-opsz.woff2
-assets/fonts/sora-latin-wght.woff2
-assets/fonts/public-sans-latin-wght.woff2
-assets/fonts/Fraunces-OFL.txt
-assets/fonts/PublicSans-OFL.txt
-assets/fonts/Sora-OFL.txt
-```
+Railway service settings are configured on the platform:
 
-## Local preview (not production)
+| Setting | Value |
+| --- | --- |
+| Builder | Railpack |
+| HTTP healthcheck | `/` |
+| Healthcheck timeout | 60 seconds |
+| Restart policy | On failure, maximum 3 retries |
+| Region | us-west2, one replica |
+| Custom start/build commands | None |
+| Domain target port | Automatic detection |
+
+No deprecated `railway.json` is required. New Railway services ignore that older format, so it was removed. The static build is controlled by `Staticfile`; healthchecks and restart settings are stored on the service.
+
+## Updates
+
+1. Preview changes locally: `python3 -m http.server 8000 --directory public`.
+2. Commit and push to `main` when Joseph requests it. The Railway service is linked to `joseph-kelly1/portfolio` on that branch and deploys GitHub updates automatically.
+3. Confirm a successful Railway deployment, then inspect https://josephkelly.dev/ and the changed assets.
+4. If the resume changes, rebuild `public/assets/resume-portfolio.pdf` using the README instructions and check that it contains the email but no phone number before committing it.
+
+Useful read-only checks:
 
 ```sh
-python3 -m http.server 8000 --directory public
+railway deployment list --project 5c8e57ef-c78e-48b6-98e4-513f6169b3ca --service portfolio --environment production --limit 3
+railway domain status josephkelly.dev --project 5c8e57ef-c78e-48b6-98e4-513f6169b3ca --service portfolio --environment production
 ```
 
-This is a development preview only. **Production uses Railway Railpack's static-site provider and Caddy**, configured by `Staticfile` and `railway.json`. The Python command remains local-preview-only.
+Do not publish `plans/`; Git ignores it. Do not put account credentials or tokens in source.
 
-## Runtime requirements
+## Cloudflare DNS
 
-- **Dependencies:** none. Any static file server works.
-- **Content types the server must send:** `text/html`, `text/css`, `font/woff2`, `image/webp`, `image/svg+xml`, `application/pdf`.
-- **Environment variables:** none. No secrets, API keys, or account credentials belong in this repository.
-- **Port:** whatever Railway requires. The site has no port of its own.
+The apex CNAME is `josephkelly.dev` → `z9hg3jl0.up.railway.app`, proxied, TTL Auto. Railway ownership is verified by the TXT record at `_railway-verify.josephkelly.dev`. Its value is available in Railway's domain status and the Cloudflare dashboard.
 
-## URL and path assumptions
+The pre-existing Cloudflare Full TLS mode and proxying were preserved. Railway reports the apex domain active, ownership verified, and certificate valid.
 
-- Single page at `/`. Every asset reference is relative (`styles.css`, `assets/...`), so the site works at a domain root.
-- In-page anchors: `#main`, `#top`, `#projects`, `#background`, `#contact`. No other routes and no rewrites.
-- `og:url` is set to `https://josephkelly.dev/`.
-- There is no custom 404 page. The host's default is acceptable.
+Only the two old apex A records were replaced, and the apex verification TXT was added. NU Insights, its verification TXT, the other subdomains, existing NS records, and all other records were left unchanged. `www` remains on its previous destination; this release covers the requested apex domain only.
 
-## Caching
+## Rollback
 
-- No asset filenames are fingerprinted. Keep `index.html` and `styles.css` on a short or revalidating cache, so updates appear without a cache purge.
-- Fonts and images rarely change and can be cached longer. If an image or the PDF is replaced under the same name, purge the CDN cache.
-- If Cloudflare proxying is enabled, check that it does not modify the PDF or fonts. Choose the proxy setting from current Railway and Cloudflare guidance.
+For a bad site update, use the Railway service's deployment history to roll back to a previous successful deployment, or revert the offending Git commit and push that revert to `main`. Do not change DNS for a normal content rollback.
 
-## Domain and DNS
+To restore the exact pre-release apex DNS state:
 
-| Item | Value |
-| --- | --- |
-| Domain | `josephkelly.dev` (owned by Joseph) |
-| Hosting | Railway (Joseph's existing subscription) |
-| DNS | Cloudflare |
-| Existing subdomain that must keep working | `nuinsights.josephkelly.dev` (NU Insights, a separate Railway service) |
-| `www` alias | **Undecided.** Ask Joseph before adding records |
+1. Remove the portfolio apex CNAME.
+2. Recreate these two A records with proxying enabled and TTL Auto:
+   - `josephkelly.dev` → `44.227.65.245`
+   - `josephkelly.dev` → `44.227.76.166`
+3. Remove only the apex `_railway-verify.josephkelly.dev` TXT if disconnecting the portfolio. Preserve the separate `_railway-verify.nuinsights` record.
 
-Preserve every unrelated DNS record, including NU Insights and any email records. Record the prior values of any record that changes.
+These were the old root destinations; restoring them restores the previous routing, not a prior portfolio version. A local backup is also in ignored `plans/dns-before-release.json`.
 
-## Repository state
+## Release verification
 
-- Branch `main`, remote `origin` = `https://github.com/joseph-kelly1/portfolio.git`.
-- At handoff, `main` was level with `origin/main` at commit `7a9d2e9` ("Add project screenshots and downloadable resume").
-- Stage 5 documentation edits (`docs/qa.md`, this file, `README.md`, `docs/decisions.md`) are uncommitted until Joseph commits them.
-- `plans/` is ignored by Git and exists only locally.
+- Railway deployment succeeded; the direct Railway page, stylesheet, PDF, Sora font, Auto Lead screenshot, and source-path isolation were checked. Downloaded public files matched local files byte for byte.
+- https://josephkelly.dev/ renders the portfolio in a browser with Sora and all three projects.
+- All three project screenshots load, with no browser console errors observed.
+- The resume downloaded through the custom-domain link matches the previously verified phone-free PDF byte for byte.
+- No horizontal overflow at 320 or 1440 pixels; temporary viewport overrides were reset.
+- Railway reports domain ownership verified and certificate status valid.
+- NU Insights still responds over HTTPS with HTTP 200 and its original Railway CNAME.
+- Non-public source paths return 404 on the Railway origin.
+- The raw Python HTTP client received 403 from the proxied apex; custom-domain checks therefore used the real browser and its resume download. No Cloudflare security settings were weakened.
 
-## QA evidence and status
-
-- Full results: `docs/qa.md`. Every check that was run passed; there are 0 axe violations and no console errors.
-- **Not covered:** Safari, Firefox, real devices, the native mobile PDF viewer, and a screen reader. These are recommended spot checks once the site is on the custom domain.
-- **Launch blockers:** none in the implementation.
-- **Content approval:** the Stage 1 brief was approved on 2026-10-14. Stages 2–5 were implemented on Joseph's requests. **Joseph authorized deployment on 2026-10-14.**
-- **Open content choices (non-blocking):** the NU Insights code link, the Khoury "Science"/"Sciences" wording, and a social preview image. See `docs/qa.md`.
-
-## Post-deploy verification (same journey on the custom domain)
-
-1. `https://josephkelly.dev/` returns 200 over a valid certificate.
-2. Fonts, both images, and the favicon load. `assets/resume-portfolio.pdf` returns `application/pdf`.
-3. GitHub, LinkedIn, MailCart, NU Insights, NU Insights code, and mailto links all work.
-4. `https://nuinsights.josephkelly.dev` still serves NU Insights.
-5. Deployed files contain no phone number. Re-run the scan in `docs/qa.md` against the deployed PDF if needed.
+Safari, Firefox, real mobile hardware, and screen readers remain outside the recorded test coverage. Earlier QA evidence is in `docs/qa.md`.

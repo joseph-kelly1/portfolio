@@ -8,8 +8,8 @@
 | 2. Working page skeleton | Complete, 2026-10-14 |
 | 3. Visual styling | Complete, 2026-10-14 |
 | 4. Projects and public résumé | Complete, 2026-10-14 |
-| 5. QA and deployment handoff | Complete, 2026-10-14; awaiting Joseph's final acceptance |
-| 6. Railway and Cloudflare release | In progress; Joseph authorized deployment, 2026-10-14 |
+| 5. QA and deployment handoff | Complete, 2026-10-14; Joseph authorized deployment after UI revisions |
+| 6. Railway and Cloudflare release | Complete, 2026-10-14; https://josephkelly.dev/ |
 
 ## Execution policy
 
@@ -113,3 +113,10 @@ Verified 2026-10-14:
 - Projects: Auto Lead added as the third project, with copy drawn only from the public repo README. It has a GitHub link and no live link. The screenshot is the README's `docs/assets/demo.png` (synthetic data, 1280×720, converted to a 66 KB WebP, lazy). The meta line "Personal project" is Claude's wording because the README states no role; Joseph may rename it. Verified: no overflow at 320, 390, 768, or 1440 px, and axe reports 0 violations.
 - Contact: personal email `josephkelly1107@gmail.com` added beside the school address in the footer "Get in touch" line. The "Email" pills still point to the school address.
 - Typography: Joseph selected Sora after comparing alternatives. Use Sora 500 for headings, site name, and role line, with Public Sans for body text and controls. Sora is self-hosted from Fontsource 5.3.0, with its OFL license beside the font. Fraunces is retained as an unused asset and is not declared or preloaded.
+
+## Production release
+
+- Live at https://josephkelly.dev/ using a separate Railway `portfolio` project and service; GitHub `main` is the deployment source.
+- Railpack serves `public/` with Caddy, configured by `Staticfile`. Healthcheck `/` (60 seconds), Railpack builder, and on-failure restart (3 retries) are managed in Railway service settings. No application dependencies were added.
+- Replaced the two old apex A records with the proxied Railway CNAME and added the required ownership TXT. Kept Cloudflare Full TLS, NU Insights, all other DNS records, and nameservers unchanged.
+- Verified domain ownership and certificate, live browser rendering, all three screenshots, exact resume download, responsive widths, and NU Insights availability. Details and rollback instructions are in `docs/deployment-handoff.md`.

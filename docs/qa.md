@@ -74,3 +74,11 @@ Replaced the decorative serif with Public Sans for headings, the site name, and 
 Joseph selected Sora from the comparison. The site now self-hosts Sora 500 for headings, site name, and role line, while retaining Public Sans for body text. Its variable WOFF2 is from `@fontsource-variable/sora` 5.3.0, downloaded with package integrity checked and its OFL license retained.
 
 Refreshed localhost and visually checked the heading. Computed styles confirm Sora 500 for the main heading and Public Sans for the body. No horizontal overflow at 320, 390, or 1440 pixels; temporary viewport overrides were reset afterward. The complete Stage 5 QA suite was not repeated. Hosting remains deferred.
+
+## Production release verification, 2026-10-14
+
+Railway origin and custom-domain checks passed. Browser rendering at https://josephkelly.dev/ shows Sora and the final three-project content. All project images load; no browser console errors were observed. The browser's custom-domain resume download matches the verified phone-free PDF exactly. Layout has no horizontal overflow at 320 or 1440 pixels.
+
+The direct Railway HTML, CSS, PDF, Sora font, and Auto Lead screenshot match local files byte for byte. Private source paths return 404 at the origin. Railway reports the domain active, ownership verified, and certificate valid. NU Insights continues to return HTTPS 200 with its original DNS target. Cloudflare's pre-existing Full TLS and proxy configuration were preserved; unrelated DNS records were checked in the dashboard and left unchanged.
+
+A raw Python HTTP client received apex 403; custom-domain verification used the real browser and its PDF download instead. This release check does not add Safari, Firefox, real mobile-device, or screen-reader coverage. Deployment and rollback details are in `docs/deployment-handoff.md`.

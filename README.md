@@ -55,6 +55,8 @@ The command sets the PDF title and author without editing the source. Before pub
 
 ## Production hosting
 
-Railway uses Railpack's static-site provider and Caddy. `Staticfile` explicitly limits the web root to `public/` and disables fallback routing, so missing paths return 404. `railway.json` selects Railpack and configures an HTTP healthcheck at `/`.
+Railway uses Railpack's static-site provider and Caddy. `Staticfile` explicitly limits the web root to `public/` and disables fallback routing, so missing paths return 404. Railpack, the HTTP healthcheck at `/`, and restart settings are configured on the Railway service.
 
 There is no application build step. The prebuilt resume PDF, screenshots, fonts, and licenses are included in Git. Keep private source files and planning documents outside `public/`.
+
+Live site: https://josephkelly.dev/. GitHub pushes to `main` automatically deploy the linked Railway service. Service identifiers, DNS mapping, update steps, and rollback instructions are in `docs/deployment-handoff.md`.
