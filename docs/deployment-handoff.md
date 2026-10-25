@@ -16,7 +16,7 @@ Released on 2026-10-14 after Joseph authorized hosting and explicitly approved p
 
 Railway Railpack detects the root `Staticfile` and serves `public/` with Caddy. No application build, Node/Python runtime, package install, database, or application environment variables are required.
 
-`Staticfile` sets `root: public` and `index_fallback: false`. Only that public directory is served. Source files under `resume/`, `docs/`, and `plans/` must remain outside it. The compiled resume PDF is committed; deployment does not rebuild LaTeX.
+`Staticfile` sets `root: public` and `index_fallback: false`. Only that public directory is served. Source files under `resume/`, `docs/`, and `plans/` must remain outside it. The résumé PDF is no longer published; keep résumé files outside `public/`.
 
 Railway service settings are configured on the platform:
 
@@ -37,7 +37,7 @@ No deprecated `railway.json` is required. New Railway services ignore that older
 1. Preview changes locally: `python3 -m http.server 8000 --directory public`.
 2. Commit and push to `main` when Joseph requests it. The Railway service is linked to `joseph-kelly1/portfolio` on that branch and deploys GitHub updates automatically.
 3. Confirm a successful Railway deployment, then inspect https://josephkelly.dev/ and the changed assets.
-4. If the resume changes, rebuild `public/assets/resume-portfolio.pdf` using the README instructions and check that it contains the email but no phone number before committing it.
+4. Confirm the personal email and résumé links are absent and `/assets/resume-portfolio.pdf` returns 404.
 
 Useful read-only checks:
 

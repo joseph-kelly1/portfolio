@@ -4,11 +4,11 @@ Approved by Joseph, 2026-10-14 (Stage 1).
 
 ## Purpose
 
-A one-page personal portfolio. It helps recruiters and hiring managers quickly understand Joseph's focus, inspect two substantive projects, and reach his résumé, GitHub, LinkedIn, and email without hunting through navigation.
+A one-page personal portfolio. It helps recruiters and hiring managers quickly understand Joseph's focus, inspect two substantive projects, and reach his GitHub, LinkedIn, and school email without hunting through navigation.
 
 ## Audience
 
-Recruiters and hiring managers. They usually read on a laptop during the workday and may revisit on a phone. They scan quickly and decide within seconds whether to open the résumé or a project.
+Recruiters and hiring managers. They usually read on a laptop during the workday and may revisit on a phone. They scan quickly and decide within seconds whether to open a project.
 
 ## Personality
 
@@ -19,7 +19,7 @@ Clean, confident, understated. Concrete, first-person copy in Joseph's voice. Th
 Content lives in `docs/content.md`. Section order:
 
 1. Introduction
-2. Professional links: résumé (primary), GitHub, LinkedIn, email
+2. Professional links: GitHub, LinkedIn, school email
 3. MailCart
 4. NU Insights
 5. Compact background: education and experience
@@ -44,7 +44,7 @@ Content lives in `docs/content.md`. Section order:
 
 ## Privacy
 
-Email is public. The phone number must never appear in source, metadata, screenshots, the PDF, or other public assets. The original résumé outside this repository stays unchanged.
+Only the school email is public. Keep the personal email and résumé PDF off the site. The phone number must never appear in source, metadata, screenshots, or other public assets. The original résumé outside this repository stays unchanged.
 
 ## Execution policy
 

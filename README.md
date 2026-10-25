@@ -16,24 +16,13 @@ This is a development preview, not production hosting. There is no build step an
 
 - `public/index.html`: page content (the authoritative copy of visible text)
 - `public/styles.css`: styles and design tokens
-- `public/assets/`: fonts, screenshots, favicon, public résumé PDF
+- `public/assets/`: fonts, screenshots, favicon
 - `docs/`: content brief (`content.md`), decisions, QA report (`qa.md`), deployment handoff
 - `resume/resume-portfolio.tex`: résumé source, kept outside the web root
 
-## Public résumé PDF
+## Privacy
 
-`public/assets/resume-portfolio.pdf` is compiled from `resume/resume-portfolio.tex`. The source has no phone number; keep it that way. To rebuild with TeX Live:
-
-```sh
-mkdir -p /tmp/resume-build
-pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/resume-build \
-  -jobname=resume-portfolio \
-  "\PassOptionsToPackage{pdftitle={Joseph Kelly - Resume},pdfauthor={Joseph Kelly}}{hyperref}\input{resume/resume-portfolio.tex}"
-# run it a second time so hyperref bookmarks settle, then:
-cp /tmp/resume-build/resume-portfolio.pdf public/assets/resume-portfolio.pdf
-```
-
-The command sets the PDF title and author without editing the source. Before publishing, check that the PDF still has the email address and no phone number. For example, open it and search, or extract its text with any PDF tool.
+The résumé PDF and personal email are not published. Keep the résumé source outside `public/`; only the school email is shown for contact.
 
 ## Assets
 
@@ -57,6 +46,6 @@ The command sets the PDF title and author without editing the source. Before pub
 
 Railway uses Railpack's static-site provider and Caddy. `Staticfile` explicitly limits the web root to `public/` and disables fallback routing, so missing paths return 404. Railpack, the HTTP healthcheck at `/`, and restart settings are configured on the Railway service.
 
-There is no application build step. The prebuilt resume PDF, screenshots, fonts, and licenses are included in Git. Keep private source files and planning documents outside `public/`.
+There is no application build step. Screenshots, fonts, and licenses are included in Git. Keep private source files and planning documents outside `public/`.
 
 Live site: https://josephkelly.dev/. GitHub pushes to `main` automatically deploy the linked Railway service. Service identifiers, DNS mapping, update steps, and rollback instructions are in `docs/deployment-handoff.md`.
